@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const numWhatsApp = "33600000000"; 
+    const numWhatsApp = "+237692701967"; 
 
     // Traduction
     const langToggleBtn = document.getElementById('lang-toggle');
