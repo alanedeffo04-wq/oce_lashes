@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oce Lashes - Studio de Beauté</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#"><img src="logo.png" alt="Oce Lashes Logo" class="logo-img"></a>
+        <div class="nav-links">
+            <a href="#histoire" class="lang-text" data-fr="Histoire" data-en="History">Histoire</a>
+            <a href="#catalogue" class="lang-text" data-fr="Prestations" data-en="Services">Prestations</a>
+            <a href="#sur-mesure" class="lang-text" data-fr="Sur Mesure" data-en="Custom">Sur Mesure</a>
+        </div>
+        <button id="lang-toggle">EN</button>
+    </nav>
+
+    <!-- Histoire -->
+    <header id="histoire">
+        <div class="history-container">
+            <div class="history-image">
+                <img src="histoire.jpeg" alt="Oce_Lashes">
+            </div>
+            <div class="history-text">
+                <h1 class="lang-text" data-fr="Notre Histoire" data-en="Our Story">Notre Histoire</h1>
+                <p class="lang-text" data-fr="Bienvenue chez Oce Lashes. Née d'une passion pour la beauté et le regard, notre mission est de sublimer chaque femme avec des poses de cils sur mesure. La douceur, l'hygiène et l'élégance sont au cœur de notre studio." data-en="Welcome to Oce Lashes. Born from a passion for beauty and the eyes, our mission is to enhance every woman with custom lash extensions. Gentleness, hygiene, and elegance are at the heart of our studio.">
+                    Bienvenue chez Oce Lashes. Née d'une passion pour la beauté et le regard, notre mission est de sublimer chaque femme avec des poses de cils sur mesure. La douceur, l'hygiène et l'élégance sont au cœur de notre studio.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Catalogue (Liste) -->
+    <section id="catalogue">
+        <h2 class="lang-text" data-fr="Nos Prestations" data-en="Our Services">Nos Prestations</h2>
+        <div class="list-catalogue">
+            
+            <div class="prestation-item">
+                <h3 class="lang-text" data-fr="Classic set" data-en="Classic set">Classic set</h3>
+                <div class="prestation-action">
+                    <span class="prix">4000 fcfa</span>
+                    <button class="btn-order lang-text btn-order-modal" data-product="Classic set (4000 fcfa)" data-fr="Commander" data-en="Order">Commander</button>
+                </div>
+            </div>
+
+            <div class="prestation-item">
+                <h3 class="lang-text" data-fr="Hybride set" data-en="Hybrid set">Hybride set</h3>
+                <div class="prestation-action">
+                    <span class="prix">5000 fcfa</span>
+                    <button class="btn-order lang-text btn-order-modal" data-product="Hybride set (5000 fcfa)" data-fr="Commander" data-en="Order">Commander</button>
+                </div>
+            </div>
+
+            <div class="prestation-item">
+                <h3 class="lang-text" data-fr="Wipsy set" data-en="Wipsy set">Wipsy set</h3>
+                <div class="prestation-action">
+                    <span class="prix">5000 fcfa</span>
+                    <button class="btn-order lang-text btn-order-modal" data-product="Wipsy set (5000 fcfa)" data-fr="Commander" data-en="Order">Commander</button>
+                </div>
+            </div>
+
+            <div class="prestation-item">
+                <h3 class="lang-text" data-fr="Volume set" data-en="Volume set">Volume set</h3>
+                <div class="prestation-action">
+                    <span class="prix">6000 fcfa</span>
+                    <button class="btn-order lang-text btn-order-modal" data-product="Mega Volume (65€)" data-fr="Commander" data-en="Order">Commander</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modale de Commande -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 class="lang-text" data-fr="Finaliser la commande" data-en="Complete your order">Finaliser la commande</h3>
+            <p id="selected-product-text" style="color: var(--pink-dark); font-weight: bold; margin-bottom: 20px;"></p>
+            
+            <form id="order-form">
+                <input type="text" id="prenom" required class="lang-placeholder" data-fr="Prénom" data-en="First Name" placeholder="Prénom">
+                <input type="text" id="nom" required class="lang-placeholder" data-fr="Nom" data-en="Last Name" placeholder="Nom">
+                <input type="tel" id="numero" required class="lang-placeholder" data-fr="Numéro de téléphone" data-en="Phone Number" placeholder="Numéro de téléphone">
+                <label for="date-rdv" class="lang-text" data-fr="Date et heure souhaitées :" data-en="Desired date and time:">Date et heure souhaitées :</label>
+                <input type="datetime-local" id="date-rdv" required>
+                
+                <button type="submit" class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> 
+                    <span class="lang-text" data-fr="Valider sur WhatsApp" data-en="Confirm on WhatsApp">Valider sur WhatsApp</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sur Mesure -->
+    <section id="sur-mesure">
+        <div class="custom-container">
+            <h2 class="lang-text" data-fr="Vous ne trouvez pas votre bonheur ?" data-en="Can't find what you are looking for?">Vous ne trouvez pas votre bonheur ?</h2>
+            <p class="lang-text" data-fr="Importez une photo d'inspiration, décrivez-nous ce que vous souhaitez et contactez-nous pour un devis sur mesure !" data-en="Upload an inspiration photo, describe what you want, and contact us for a custom quote!">
+                Importez une photo d'inspiration, décrivez-nous ce que vous souhaitez et contactez-nous pour un devis sur mesure !
+            </p>
+            
+            <form id="custom-order-form">
+                <label for="custom-file" class="upload-area" id="upload-label">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <p id="file-name" class="lang-text" data-fr="Cliquez pour ajouter votre photo" data-en="Click to add your photo">Cliquez pour ajouter votre photo</p>
+                    <input type="file" id="custom-file" accept="image/*" style="display: none;">
+                </label>
+
+                <textarea id="custom-desc" required class="lang-placeholder" data-fr="Décrivez la pose de vos rêves (longueur, effet, volume...)" data-en="Describe your dream lashes (length, effect, volume...)" placeholder="Décrivez la pose de vos rêves (longueur, effet, volume...)"></textarea>
+
+                <button type="submit" class="btn-whatsapp" style="width: 100%; justify-content: center;">
+                    <i class="fa-brands fa-whatsapp"></i> 
+                    <span class="lang-text" data-fr="Commander via WhatsApp" data-en="Order via WhatsApp">Commander via WhatsApp</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="logo.png" alt="Oce Lashes Logo" style="height: 40px; margin-bottom: 10px; filter: brightness(0) invert(1);"> 
+                <p class="lang-text" data-fr="Sublimez votre regard." data-en="Enhance your look.">Sublimez votre regard.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="lang-text" data-fr="Contact" data-en="Contact">Contact</h4>
+                <p>Email: contact@ocelashes.com</p>
+                <p>Tel: +237 692701967</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="lang-text" data-fr="Réseaux Sociaux" data-en="Social Media">Réseaux Sociaux</h4>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@oc.lashes?_r=1&_t=ZS-99NOAjS6lrJ"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <a href="#" class="lang-text" data-fr="Politique de confidentialité" data-en="Privacy Policy">Politique de confidentialité</a>
+            <p>&copy; 2026 Oce Lashes. <span class="lang-text" data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
