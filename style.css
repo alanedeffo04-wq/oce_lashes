@@ -211,3 +211,15 @@ footer { background-color: var(--text-dark); color: var(--white); padding: 50px 
     .history-container .history-text h1 { font-size: 24px; margin-bottom: 10px; }
     .history-container .history-text p { font-size: 13px; line-height: 1.6; }
 }
+
+/* Empêche tout débordement horizontal */
+html, body { overflow-x: hidden; max-width: 100%; }
+
+/* Barre mobile qui rentre dans l'écran */
+@media (max-width: 768px) {
+    nav { width: auto; max-width: calc(100% - 20px); margin: 8px 10px 0; padding: 6px 10px; gap: 6px; overflow: hidden; }
+    .logo-img { height: 36px; max-width: 70px; object-fit: contain; }
+    .nav-links { min-width: 0; flex: 1; gap: 6px; justify-content: space-around; }
+    .nav-links a { font-size: 10px; letter-spacing: 0; }
+    #lang-toggle { padding: 4px 9px; font-size: 11px; }
+}

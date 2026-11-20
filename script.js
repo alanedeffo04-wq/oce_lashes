@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     langToggleBtn.addEventListener('click', () => {
         currentLang = currentLang === 'fr' ? 'en' : 'fr';
-        langToggleBtn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+                langToggleBtn.textContent = currentLang.toUpperCase();
 
         textElements.forEach(el => {
             el.textContent = el.getAttribute(currentLang === 'en' ? 'data-en' : 'data-fr');
