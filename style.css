@@ -124,3 +124,16 @@ footer { background-color: var(--text-dark); color: var(--white); padding: 50px 
 @media (prefers-reduced-motion: reduce) {
     .pose-card, .pose-img img, .modal.open .modal-content, .pose-card.selected, .check circle, .check path { animation: none !important; transition: none !important; stroke-dashoffset: 0; }
 }
+
+/* Blocs en rose (ordinateur et mobile) */
+.pose-card { background: var(--pink-light); border: 2px solid var(--pink-dark); }
+.pose-info .prix { display: inline-block; background: var(--pink-dark); color: var(--white); padding: 4px 16px; border-radius: 20px; font-size: 15px; }
+
+/* Mobile : 2 blocs par rangée, plus de défilement horizontal */
+@media (max-width: 768px) {
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; overflow: visible; scroll-snap-type: none; padding: 10px 5px 20px; }
+    .pose-card { flex: none; width: auto; }
+    .pose-info { padding: 12px 8px 16px; }
+    .pose-info h3 { font-size: 15px; }
+    .pose-info .prix { font-size: 13px; padding: 4px 12px; }
+}
