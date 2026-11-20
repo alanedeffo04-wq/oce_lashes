@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const numWhatsApp = "+237692701967"; 
+    const numWhatsApp = "+237692701967";
 
     // Traduction
     const langToggleBtn = document.getElementById('lang-toggle');
     const textElements = document.querySelectorAll('.lang-text');
     const placeholderElements = document.querySelectorAll('.lang-placeholder');
-    let currentLang = 'fr'; 
+    let currentLang = 'fr';
 
     langToggleBtn.addEventListener('click', () => {
         currentLang = currentLang === 'fr' ? 'en' : 'fr';
-        langToggleBtn.textContent = currentLang === 'fr' ? 'EN' : 'FR'; 
+        langToggleBtn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
 
         textElements.forEach(el => {
             el.textContent = el.getAttribute(currentLang === 'en' ? 'data-en' : 'data-fr');
@@ -20,25 +20,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Ouverture / fermeture des modales (avec animation)
+    const openModal = (m) => { m.style.display = 'flex'; m.classList.remove('open'); void m.offsetWidth; m.classList.add('open'); };
+    const closeModal = (m) => { m.style.display = 'none'; m.classList.remove('open'); };
+
+    // Photo manquante : on masque l'image, le fond rose reste
+    document.querySelectorAll('.pose-img img').forEach(img => {
+        img.addEventListener('error', () => { img.style.display = 'none'; });
+    });
+
     // Modale Prestations
     const modal = document.getElementById('order-modal');
+    const successModal = document.getElementById('success-modal');
     const closeBtn = document.querySelector('.close-modal');
     const orderBtns = document.querySelectorAll('.btn-order-modal');
     const formCatalogue = document.getElementById('order-form');
     const productTextDisplay = document.getElementById('selected-product-text');
     let selectedProduct = '';
-    
-    orderBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            selectedProduct = btn.getAttribute('data-product');
-            productTextDisplay.textContent = selectedProduct;
-            modal.style.display = 'flex';
+
+    const selectCard = (card) => {
+        orderBtns.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedProduct = card.getAttribute('data-product');
+        productTextDisplay.textContent = selectedProduct;
+        setTimeout(() => openModal(modal), 350);
+    };
+
+    orderBtns.forEach(card => {
+        card.addEventListener('click', (e) => { e.preventDefault(); selectCard(card); });
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectCard(card); }
         });
     });
 
-    closeBtn.onclick = () => { modal.style.display = 'none'; };
-    window.onclick = (e) => { if (e.target == modal) { modal.style.display = 'none'; } };
+    const closeOrder = () => { closeModal(modal); orderBtns.forEach(c => c.classList.remove('selected')); };
+    closeBtn.onclick = closeOrder;
+    document.getElementById('success-close').onclick = () => closeModal(successModal);
+    window.onclick = (e) => {
+        if (e.target == modal) closeOrder();
+        if (e.target == successModal) closeModal(successModal);
+    };
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { closeOrder(); closeModal(successModal); }
+    });
 
     formCatalogue.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -54,7 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.open(`https://wa.me/${numWhatsApp}?text=${encodeURIComponent(message)}`, '_blank');
         formCatalogue.reset();
-        modal.style.display = 'none';
+        closeOrder();
+        openModal(successModal);
     });
 
     // Formulaire Sur Mesure
@@ -74,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const description = document.getElementById('custom-desc').value;
         let message = `Bonjour Oce Lashes 🌸\n\nJe souhaite réaliser une pose sur mesure.\n\n*Ma description :*\n"${description}"\n\n`;
-        
+
         if (customFileInput.files.length > 0) {
             message += `_(Je vous envoie la photo d'inspiration juste après ce message !)_`;
         } else {
@@ -86,5 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fileNameDisplay.textContent = currentLang === 'en' ? "Click to add your photo" : "Cliquez pour ajouter votre photo";
         fileNameDisplay.style.color = "var(--pink-dark)";
         fileNameDisplay.style.fontWeight = "normal";
+        openModal(successModal);
     });
 });

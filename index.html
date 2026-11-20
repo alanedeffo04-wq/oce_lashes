@@ -36,42 +36,31 @@
         </div>
     </header>
 
-    <!-- Catalogue (Liste) -->
+    <!-- Catalogue (blocs photos horizontaux) -->
     <section id="catalogue">
         <h2 class="lang-text" data-fr="Nos Prestations" data-en="Our Services">Nos Prestations</h2>
-        <div class="list-catalogue">
-            
-            <div class="prestation-item">
-                <h3 class="lang-text" data-fr="Classic set" data-en="Classic set">Classic set</h3>
-                <div class="prestation-action">
-                    <span class="prix">4000 fcfa</span>
-                    <button class="btn-order lang-text btn-order-modal" data-product="Classic set (4000 fcfa)" data-fr="Commander" data-en="Order">Commander</button>
-                </div>
-            </div>
+        <p class="cards-hint lang-text" data-fr="Touchez une pose pour la commander" data-en="Tap a set to order it">Touchez une pose pour la commander</p>
+        <div class="cards">
 
-            <div class="prestation-item">
-                <h3 class="lang-text" data-fr="Hybride set" data-en="Hybrid set">Hybride set</h3>
-                <div class="prestation-action">
-                    <span class="prix">5000 fcfa</span>
-                    <button class="btn-order lang-text btn-order-modal" data-product="Hybride set (5000 fcfa)" data-fr="Commander" data-en="Order">Commander</button>
-                </div>
-            </div>
+            <article class="pose-card btn-order-modal" tabindex="0" role="button" data-product="Classic set (4000 fcfa)">
+                <div class="pose-img"><img src="classic.jpeg" alt="Classic set" loading="lazy"></div>
+                <div class="pose-info"><h3>Classic set</h3><span class="prix">4000 fcfa</span></div>
+            </article>
 
-            <div class="prestation-item">
-                <h3 class="lang-text" data-fr="Wipsy set" data-en="Wipsy set">Wipsy set</h3>
-                <div class="prestation-action">
-                    <span class="prix">5000 fcfa</span>
-                    <button class="btn-order lang-text btn-order-modal" data-product="Wipsy set (5000 fcfa)" data-fr="Commander" data-en="Order">Commander</button>
-                </div>
-            </div>
+            <article class="pose-card btn-order-modal" tabindex="0" role="button" data-product="Hybride set (5000 fcfa)">
+                <div class="pose-img"><img src="hybride.jpeg" alt="Hybride set" loading="lazy"></div>
+                <div class="pose-info"><h3>Hybride set</h3><span class="prix">5000 fcfa</span></div>
+            </article>
 
-            <div class="prestation-item">
-                <h3 class="lang-text" data-fr="Volume set" data-en="Volume set">Volume set</h3>
-                <div class="prestation-action">
-                    <span class="prix">6000 fcfa</span>
-                    <button class="btn-order lang-text btn-order-modal" data-product="Volume set ( 6000 fcfa)" data-fr="Commander" data-en="Order">Commander</button>
-                </div>
-            </div>
+            <article class="pose-card btn-order-modal" tabindex="0" role="button" data-product="Wipsy set (5000 fcfa)">
+                <div class="pose-img"><img src="wipsy.jpeg" alt="Wipsy set" loading="lazy"></div>
+                <div class="pose-info"><h3>Wipsy set</h3><span class="prix">5000 fcfa</span></div>
+            </article>
+
+            <article class="pose-card btn-order-modal" tabindex="0" role="button" data-product="Volume set (6000 fcfa)">
+                <div class="pose-img"><img src="volume.jpeg" alt="Volume set" loading="lazy"></div>
+                <div class="pose-info"><h3>Volume set</h3><span class="prix">6000 fcfa</span></div>
+            </article>
 
         </div>
     </section>
@@ -82,19 +71,29 @@
             <span class="close-modal">&times;</span>
             <h3 class="lang-text" data-fr="Finaliser la commande" data-en="Complete your order">Finaliser la commande</h3>
             <p id="selected-product-text" style="color: var(--pink-dark); font-weight: bold; margin-bottom: 20px;"></p>
-            
+
             <form id="order-form">
                 <input type="text" id="prenom" required class="lang-placeholder" data-fr="Prénom" data-en="First Name" placeholder="Prénom">
                 <input type="text" id="nom" required class="lang-placeholder" data-fr="Nom" data-en="Last Name" placeholder="Nom">
                 <input type="tel" id="numero" required class="lang-placeholder" data-fr="Numéro de téléphone" data-en="Phone Number" placeholder="Numéro de téléphone">
                 <label for="date-rdv" class="lang-text" data-fr="Date et heure souhaitées :" data-en="Desired date and time:">Date et heure souhaitées :</label>
                 <input type="datetime-local" id="date-rdv" required>
-                
+
                 <button type="submit" class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> 
+                    <i class="fa-brands fa-whatsapp"></i>
                     <span class="lang-text" data-fr="Valider sur WhatsApp" data-en="Confirm on WhatsApp">Valider sur WhatsApp</span>
                 </button>
             </form>
+        </div>
+    </div>
+
+    <!-- Modale de confirmation -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content success">
+            <div class="check"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l8 8 14-16"/></svg></div>
+            <h3 class="lang-text" data-fr="Félicitations ! 🌸" data-en="Congratulations! 🌸">Félicitations ! 🌸</h3>
+            <p class="lang-text" data-fr="Nous avons bien reçu votre demande. Appuyez sur « Envoyer » dans WhatsApp pour la finaliser : nous vous confirmons votre rendez-vous très vite." data-en="We have received your request. Press “Send” in WhatsApp to finalize it: we will confirm your appointment very soon.">Nous avons bien reçu votre demande. Appuyez sur « Envoyer » dans WhatsApp pour la finaliser : nous vous confirmons votre rendez-vous très vite.</p>
+            <button type="button" id="success-close" class="btn-order lang-text" data-fr="Parfait" data-en="Great">Parfait</button>
         </div>
     </div>
 
@@ -105,7 +104,7 @@
             <p class="lang-text" data-fr="Importez une photo d'inspiration, décrivez-nous ce que vous souhaitez et contactez-nous pour un devis sur mesure !" data-en="Upload an inspiration photo, describe what you want, and contact us for a custom quote!">
                 Importez une photo d'inspiration, décrivez-nous ce que vous souhaitez et contactez-nous pour un devis sur mesure !
             </p>
-            
+
             <form id="custom-order-form">
                 <label for="custom-file" class="upload-area" id="upload-label">
                     <i class="fa-solid fa-cloud-arrow-up"></i>
@@ -116,7 +115,7 @@
                 <textarea id="custom-desc" required class="lang-placeholder" data-fr="Décrivez la pose de vos rêves (longueur, effet, volume...)" data-en="Describe your dream lashes (length, effect, volume...)" placeholder="Décrivez la pose de vos rêves (longueur, effet, volume...)"></textarea>
 
                 <button type="submit" class="btn-whatsapp" style="width: 100%; justify-content: center;">
-                    <i class="fa-brands fa-whatsapp"></i> 
+                    <i class="fa-brands fa-whatsapp"></i>
                     <span class="lang-text" data-fr="Commander via WhatsApp" data-en="Order via WhatsApp">Commander via WhatsApp</span>
                 </button>
             </form>
@@ -127,7 +126,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <img src="logo.png" alt="Oce Lashes Logo" style="height: 40px; margin-bottom: 10px; filter: brightness(0) invert(1);"> 
+                <img src="logo.png" alt="Oce Lashes Logo" style="height: 40px; margin-bottom: 10px; filter: brightness(0) invert(1);">
                 <p class="lang-text" data-fr="Sublimez votre regard." data-en="Enhance your look.">Sublimez votre regard.</p>
             </div>
             <div class="footer-section">
