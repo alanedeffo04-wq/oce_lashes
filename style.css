@@ -146,3 +146,18 @@ footer { background-color: var(--text-dark); color: var(--white); padding: 50px 
     .nav-links { order: 3; width: 100%; flex-direction: row; justify-content: space-between; gap: 0; margin: 6px 0 0; padding-top: 8px; border-top: 1px solid var(--pink-light); }
     .nav-links a { margin: 0; font-size: 12px; letter-spacing: 0.5px; }
 }
+
+/* Bloc Histoire : une seule carte propre */
+#histoire { padding: 30px 20px 50px; }
+.history-container { max-width: 800px; background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.history-container .history-image img { display: block; width: 100%; max-width: none; height: auto; max-height: 520px; object-fit: cover; object-position: center 25%; border-radius: 0; box-shadow: none; }
+.history-container .history-text { margin-top: 0; border-radius: 0; box-shadow: none; padding: 30px 25px 35px; }
+
+/* Mobile : la photo prend toute la largeur, sans bordures roses */
+@media (max-width: 768px) {
+    #histoire { padding: 0 0 30px; }
+    .history-container { border-radius: 0 0 24px 24px; }
+    .history-container .history-image img { max-height: 430px; }
+    .history-text h1 { font-size: 26px; }
+    .history-text p { font-size: 15px; }
+}
